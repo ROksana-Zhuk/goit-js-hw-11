@@ -7,14 +7,16 @@ const simpleLightboxInstance = new SimpleLightbox('.gallery-link', {
 });
 
 const galleryListEl = document.querySelector('.gallery');
+const inputEl = document.querySelector('input[name = search-text]');
+const loaderEl = document.querySelector('.visually-hidden');
 
 export function addLoader() {
+  loaderEl.classList.remove('visually-hidden');
   galleryListEl.innerHTML = '';
-  galleryListEl.insertAdjacentHTML('beforeend', '<span class="loader"></span>');
 }
 
 export function removeLoader() {
-  galleryListEl.removeChild(document.querySelector('.loader'));
+  loaderEl.classList.add('visually-hidden');
 }
 
 export function addImagesMarkup(imagesHits) {
@@ -49,4 +51,5 @@ export function addImagesMarkup(imagesHits) {
 
   galleryListEl.insertAdjacentHTML('beforeend', markup);
   simpleLightboxInstance.refresh();
+  inputEl.value = '';
 }
