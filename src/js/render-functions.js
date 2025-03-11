@@ -24,7 +24,7 @@ export function addImagesMarkup(imagesHits) {
     .map(hit => {
       return `<li>
           <a class="gallery-link" href="${hit.largeImageURL}">
-            <img src="${hit.previewURL}" alt="" title=""/>
+            <img src="${hit.webformatURL}" alt="${hit.tags}" title=""/>
           </a>
           <table>
             <thead>

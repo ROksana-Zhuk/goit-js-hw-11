@@ -11,9 +11,13 @@ const inputEl = document.querySelector('input[name = search-text]');
 
 formEl.addEventListener('submit', event => {
   event.preventDefault();
+  const userInput = inputEl.value.trim();
+  if (userInput === '') {
+    return;
+  }
   addLoader();
 
-  getImagesPromise(inputEl.value)
+  getImagesPromise(userInput)
     .then(response => {
       console.log(response);
 
